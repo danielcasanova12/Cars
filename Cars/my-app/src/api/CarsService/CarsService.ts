@@ -27,14 +27,35 @@ const getById = async (id: number): Promise<ICar | ApiException> => {
   }
 };
 
-const create = async (dataToCreate: Omit<ICar, 'id'>): Promise<ICar | ApiException> => {
+const create = async (dataToCreate: Omit<ICar, 'carId'>): Promise<ICar | ApiException> => {
   try {
-    const { data } = await Api().post<any>('/api/Cars', dataToCreate);
-    return data;
+    // Omitir o campo 'carId' do objeto dataToCreate
+
+    const response = await Api().post<any>('/api/Cars', dataToCreate, {
+      headers: {
+        'Content-Type': 'application/json', // Certifique-se de que o Content-Type seja 'application/json'
+      },
+    });
+
+    // Verifique se a resposta está no formato esperado
+    if (response.status === 201 && response.data) {
+      return response.data;
+    } else {
+      console.error('Resposta inesperada da API:', response);
+      return new ApiException('Erro inesperado ao criar o registro.');
+    }
   } catch (error: any) {
+    console.error('Erro ao criar o registro:', error);
     return new ApiException(error.message || 'Erro ao criar o registro.');
   }
 };
+
+
+
+
+
+
+
 
 const updateById = async (id: number, dataToUpdate: ICar): Promise<ICar | ApiException> => {
   try {

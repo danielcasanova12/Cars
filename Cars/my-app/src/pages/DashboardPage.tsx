@@ -28,9 +28,10 @@
 //   );
 // }
 
-import React, { useEffect, useState } from 'react';// Importe o serviço e a interface
+import React, { useEffect, useState } from 'react';
 import { CarService, ICar } from '../api/CarsService/CarsService';
 import { ApiException } from '../api/ApiException';
+import { Link } from 'react-router-dom';
 
 export function DashboardPage() {
   const [carData, setCarData] = useState<ICar[] | ApiException[]>([]);
@@ -43,7 +44,6 @@ export function DashboardPage() {
         if (data instanceof ApiException) {
           console.error('Erro ao buscar dados da API:', data.message);
         } else {
-            console.log(data);
           setCarData(data);
         }
       })
@@ -57,6 +57,20 @@ export function DashboardPage() {
     <div>
       <p>Página Inicial</p>
       <h2>Dados da API:</h2>
+      <ul>
+        {(carData as ICar[]).map(car => (
+          <li key={car.carId}>
+            <strong>Car ID:</strong> {car.carId}<br />
+            <strong>Modelo:</strong> {car.model}<br />
+            <strong>Cor:</strong> {car.color}<br />
+            <strong>Ano:</strong> {car.year}<br />
+            <strong>Foto:</strong> <img src={car.photoUrl} alt={`Foto do ${car.model}`} /><br />
+          </li>
+        ))}
+      </ul>
+      <Link to="/">Página Inicial</Link>
+      <Link to="/create">Criar Novo Carro</Link>
     </div>
   );
 }
+

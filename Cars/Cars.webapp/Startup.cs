@@ -18,7 +18,21 @@ namespace Cars.webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-           
+
+            // Configuração das políticas CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    // Permite solicitações de qualquer origem
+                    builder.AllowAnyOrigin()
+                           // Permite solicitações de qualquer método (GET, POST, PUT, etc.)
+                           .AllowAnyMethod()
+                           // Permite solicitações de qualquer cabeçalho
+                           .AllowAnyHeader();
+                });
+            });
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContext<AppDbContext>();
@@ -31,7 +45,10 @@ namespace Cars.webapp
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            // Aplicar políticas CORS
             app.UseCors("CorsPolicy");
+
             app.UseHttpsRedirection();
             app.UseRouting();
 
