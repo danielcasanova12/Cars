@@ -29,15 +29,12 @@ const getById = async (id: number): Promise<ICar | ApiException> => {
 
 const create = async (dataToCreate: Omit<ICar, 'carId'>): Promise<ICar | ApiException> => {
   try {
-    // Omitir o campo 'carId' do objeto dataToCreate
-
     const response = await Api().post<any>('/api/Cars', dataToCreate, {
       headers: {
-        'Content-Type': 'application/json', // Certifique-se de que o Content-Type seja 'application/json'
+        'Content-Type': 'application/json', 
       },
     });
 
-    // Verifique se a resposta está no formato esperado
     if (response.status === 201 && response.data) {
       return response.data;
     } else {

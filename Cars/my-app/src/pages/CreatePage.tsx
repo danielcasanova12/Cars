@@ -59,7 +59,6 @@ export function CreatePage() {
     const selectedFile = files[0];
     setSelectedImage(selectedFile);
 
-    // Lê a imagem como uma representação base64
     const reader = new FileReader();
     reader.onload = () => {
       const base64String = reader.result as string;
