@@ -1,37 +1,9 @@
-// import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
-
-// export function DashboardPage() {
-//   // Defina um estado para armazenar os dados da API
-//   const [carData, setCarData] = useState([]);
-
-//   useEffect(() => {
-//     // Faça uma chamada à sua API quando o componente for montado
-//     axios.get('https://localhost:7186/api/Cars')
-//       .then(response => {
-//         // Quando a resposta da API for bem-sucedida, atualize o estado com os dados
-//         console.log(response.data);
-//         //setCarData();
-//       })
-//       .catch(error => {
-//         // Lide com erros, por exemplo, exibindo uma mensagem de erro
-//         console.error('Erro ao buscar dados da API:', error);
-//       });
-//   }, []); // O segundo argumento [] garante que isso só será executado uma vez
-
-//   // Renderize os dados da API na página
-//   return (
-//     <div>
-//       <p>Página Inicial</p>
-//       <h2>Dados da API:</h2>
-//     </div>
-//   );
-// }
-
 import React, { useEffect, useState } from 'react';
 import { CarService, ICar } from '../api/CarsService/CarsService';
 import { ApiException } from '../api/ApiException';
 import { Link } from 'react-router-dom';
+import Menu from './Menu'; // Importe o componente de menu
+import '../shared/index.css'; // Importe seus estilos compartilhados aqui
 
 export function DashboardPage() {
   const [carData, setCarData] = useState<ICar[] | ApiException[]>([]);
@@ -54,23 +26,44 @@ export function DashboardPage() {
 
   // Renderize os dados da API na página
   return (
-    <div>
-      <p>Página Inicial</p>
-      <h2>Dados da API:</h2>
-      <ul>
+    <div className="dashboard-container">
+      <Menu /> {/* Inclua o componente de menu aqui */}
+      <p className="title">Página Inicial</p>
+      <h2 className="section-title">Dados da API:</h2>
+      <ul className="car-list">
         {(carData as ICar[]).map(car => (
-          <li key={car.carId}>
-            <strong>Car ID:</strong> {car.carId}<br />
-            <strong>Modelo:</strong> {car.model}<br />
-            <strong>Cor:</strong> {car.color}<br />
-            <strong>Ano:</strong> {car.year}<br />
-            <strong>Foto:</strong> <img src={car.photoUrl} alt={`Foto do ${car.model}`} /><br />
+          <li key={car.carId} className="car-item">
+            <div className="car-info">
+              <div>
+                <span className="label">Car ID:</span> {car.carId}
+              </div>
+              <div>
+                <span className="label">Modelo:</span> {car.model}
+              </div>
+              <div>
+                <span className="label">Cor:</span> {car.color}
+              </div>
+              <div>
+                <span className="label">Ano:</span> {car.year}
+              </div>
+            </div>
+            <div className="car-image-container">
+              <span className="label">Foto:</span>
+              <img src={car.photoUrl} alt={`Foto do ${car.model}`} className="car-image" />
+            </div>
+            <div>
+            <div>
+          <Link to={`/editar/${car.carId}`} className="button-link">Editar</Link>
+          <Link to={`/deletar/${car.carId}`} className="button-link">Deletar</Link>
+          </div>
+            </div>
           </li>
         ))}
       </ul>
-      <Link to="/">Página Inicial</Link>
-      <Link to="/create">Criar Novo Carro</Link>
+      <div className="nav-links">
+        <Link to="/" className="nav-link ">Página Inicial</Link>
+        <Link to="/create" className="nav-link">Criar Novo Carro</Link>
+      </div>
     </div>
   );
 }
-

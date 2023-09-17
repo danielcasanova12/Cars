@@ -1,4 +1,78 @@
-.container {
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .car-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .car-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .car-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .car-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .car-image {
+    max-width: 200px; /* Defina o tamanho máximo desejado para as imagens */
+    height: auto; /* Isso manterá a proporção original da imagem */
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px; /* Adiciona um espaço na parte de baixo */
+    background-color: aliceblue;
+  }
+  
+  .nav-link {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,9 +105,42 @@
     color: white;
     cursor: pointer;
     margin-top: 10px;
+    
   }
   
   button:hover {
     background-color: #004499;
+  }
+  .car-image {
+    max-width: 200px; /* Defina o tamanho máximo desejado para as imagens */
+    height: auto; /* Isso manterá a proporção original da imagem */
+  }
+  /* styles.css (ou outro arquivo de estilo) */
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
   }
   

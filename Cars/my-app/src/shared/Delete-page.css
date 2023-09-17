@@ -1,0 +1,72 @@
+/* delete-page.css */
+p{
+    color: #333; 
+    font-size: 32px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    color: #333; /* Cor do texto para tornar os dados visíveis */
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #cc0000;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .confirmation-modal {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .confirmation-modal p {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #333; /* Cor do texto no modal de confirmação */
+  }
+  
+  .confirmation-modal button {
+    margin-right: 10px;
+  }
+  

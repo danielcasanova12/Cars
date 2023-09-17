@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { CarService } from '../api/CarsService/CarsService';
 import ImageUpload from './ImageUpload'; // Certifique-se de importar o componente ImageUpload
 import '../shared/index.css';
+import { Link } from 'react-router-dom';
 export function CreatePage() {
   const [model, setModel] = useState('');
   const [color, setColor] = useState('');
@@ -111,6 +112,7 @@ export function CreatePage() {
         <ImageUpload onImageUpload={handleImageUpload} />
       </div>
       <button onClick={handleCreateCar}>Enviar Dados Predefinidos</button>
+      <Link to="/">Cancelar</Link>
     </div>
   );
 }

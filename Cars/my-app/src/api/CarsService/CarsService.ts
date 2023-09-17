@@ -51,12 +51,6 @@ const create = async (dataToCreate: Omit<ICar, 'carId'>): Promise<ICar | ApiExce
 };
 
 
-
-
-
-
-
-
 const updateById = async (id: number, dataToUpdate: ICar): Promise<ICar | ApiException> => {
   try {
     const { data } = await Api().put(`/api/Cars/${id}`, dataToUpdate);
