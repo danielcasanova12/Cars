@@ -12,12 +12,8 @@ function Menu() {
           <Link to="/">Página Inicial</Link>
         </li>
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+            <Link to="/create" className="nav-link">Criar Novo Carro</Link>
         </li>
-        <li>
-          <Link to="/editar">Editar</Link>
-        </li>
-        {/* Adicione mais links para outras páginas */}
       </ul>
     </nav>
   );

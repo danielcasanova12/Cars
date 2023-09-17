@@ -1,16 +1,37 @@
-.dashboard-container {
+body {
+    margin-right: 400px;
+    margin-left: 400px;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #007bff;
-    color: white;
+    max-width: 800px; /* Defina o tamanho máximo da tela */
+    margin: 0 auto; /* Centralize na horizontal */
+    background-color: #ffffff;
+    color: #333;
+    text-align: left;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
   }
   
   .section-title {
     font-size: 24px;
     margin-bottom: 20px;
+    margin-top: 50px;
   }
   
   .car-list {
@@ -23,7 +44,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white;
+    background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -40,6 +61,7 @@
   .label {
     font-weight: bold;
     color: #007bff;
+    font-size: 20;
   }
   
   .car-image-container {
@@ -49,22 +71,23 @@
   }
   
   .car-image {
-    max-width: 200px; /* Defina o tamanho máximo desejado para as imagens */
-    height: auto; /* Isso manterá a proporção original da imagem */
+    max-width: 200px;
+    height: auto;
   }
   
   .nav-links {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 50px; /* Adiciona um espaço na parte de baixo */
-    background-color: aliceblue;
+    margin-bottom: 50px;
+    background-color: #007bff;
+    text-align: center;
   }
   
   .nav-link {
     margin: 0 10px;
     font-weight: bold;
-    color: #007bff;
+    color: #ffffff;
     text-decoration: none;
   }
   
@@ -72,52 +95,7 @@
     text-decoration: underline;
   }
   
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
-  input {
-    padding: 5px;
-    margin-top: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #0056b3;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-    
-  }
-  
-  button:hover {
-    background-color: #004499;
-  }
-  .car-image {
-    max-width: 200px; /* Defina o tamanho máximo desejado para as imagens */
-    height: auto; /* Isso manterá a proporção original da imagem */
-  }
-  /* styles.css (ou outro arquivo de estilo) */
-
-.menu {
+  .menu {
     position: fixed;
     top: 0;
     left: 0;
@@ -125,6 +103,7 @@
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
+    text-align: center;
   }
   
   .menu ul {
@@ -142,5 +121,51 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 5px;
+    margin-top: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #004499;
+  }
+  .label2{
+    font-size: 20px;
+    color: black;
+}
+/* Estilo do botão Editar */
+.button-container {
+    margin: 10px 0; /* Adiciona margens verticalmente para espaçamento entre os botões e elementos acima/abaixo */
+  }
+.edit-button {
+    background-color: #007bff; /* Cor de fundo azul para o botão Editar */
+    color: white; /* Cor do texto branco */
+    padding: 8px 16px; /* Espaçamento interno */
+    border: none; /* Remova a borda */
+    border-radius: 4px; /* Borda arredondada */
+    margin-right: 8px; /* Espaço à direita para separar os botões */
+    text-decoration: none; /* Remova a sublinhado do link */
+  }
+  
+  /* Estilo do botão Deletar */
+  .delete-button {
+    background-color: #dc3545; /* Cor de fundo vermelha para o botão Deletar */
+    color: white; /* Cor do texto branco */
+    padding: 8px 16px; /* Espaçamento interno */
+    border: none; /* Remova a borda */
+    border-radius: 4px; /* Borda arredondada */
+    text-decoration: none; /* Remova a sublinhado do link */
   }
   

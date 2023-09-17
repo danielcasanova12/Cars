@@ -11,6 +11,7 @@ export function AppRoute(){
             <Route path="/editar/:id" element={<EditPage />} /> 
             <Route path="/deletar/:id" element={<DeletePage />} />
             <Route path="/Create" element={<CreatePage />} />
+            <Route path="*" element={<DashboardPage />} />
         </Routes>
         </BrowserRouter>
     )

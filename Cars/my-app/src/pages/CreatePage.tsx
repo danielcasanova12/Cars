@@ -3,6 +3,7 @@ import { CarService } from '../api/CarsService/CarsService';
 import ImageUpload from './ImageUpload'; // Certifique-se de importar o componente ImageUpload
 import '../shared/index.css';
 import { Link } from 'react-router-dom';
+import Menu from './Menu';
 export function CreatePage() {
   const [model, setModel] = useState('');
   const [color, setColor] = useState('');
@@ -69,6 +70,9 @@ export function CreatePage() {
 
   return (
     <div className="container">
+      <div className="menu">
+        <Menu />
+      </div>
       <p className="title">Criar Carro</p>
       <div className="error-container">
         {Object.keys(errors).map((fieldName) => (

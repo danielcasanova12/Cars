@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom'; // Importe useNavigate
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { CarService, ICar } from '../api/CarsService/CarsService';
 import { ApiException } from '../api/ApiException';
 import ImageUpload from './ImageUpload';
+import Menu from './Menu';
+import '../shared/index.css'; // Importe seus estilos compartilhados aqui
 
 export function EditPage() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate(); // Obtenha a função de navegação
+  const navigate = useNavigate();
 
   const [carData, setCarData] = useState<ICar | null>(null);
   const [formData, setFormData] = useState<ICar>({
@@ -84,12 +86,15 @@ export function EditPage() {
   }
 
   if (!carData) {
-    return <div>Carregando...</div>;
+    return <div className="container">Carregando...</div>;
   }
   return (
-    <div>
-      <p>Editar Carro</p>
-      <div>
+    <div className="container">
+      <div className="menu">
+        <Menu />
+      </div>
+      <p className="title">Editar Carro</p>
+      <div className="input-container">
         <label>Modelo:</label>
         <input
           type="text"
@@ -98,7 +103,7 @@ export function EditPage() {
           onChange={handleInputChange}
         />
       </div>
-      <div>
+      <div className="input-container">
         <label>Cor:</label>
         <input
           type="text"
@@ -107,7 +112,7 @@ export function EditPage() {
           onChange={handleInputChange}
         />
       </div>
-      <div>
+      <div className="input-container">
         <label>Ano:</label>
         <input
           type="number"
@@ -116,7 +121,7 @@ export function EditPage() {
           onChange={handleInputChange}
         />
       </div>
-      <div>
+      <div className="input-container">
         <label>Foto:</label>
         <ImageUpload onImageUpload={handleImageUpload} />
         {formData.photoUrl && (
@@ -127,7 +132,8 @@ export function EditPage() {
           />
         )}
       </div>
-      <button onClick={handleEditCar}>Salvar Edições</button>
+      <button className="button-edit" onClick={handleEditCar}>Salvar Edições</button>
+      <Link to="/" className="button-delete">Cancelar</Link>
     </div>
   );
 }

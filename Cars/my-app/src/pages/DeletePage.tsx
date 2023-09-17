@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { CarService, ICar } from '../api/CarsService/CarsService';
 import { ApiException } from '../api/ApiException';
 import '../shared/Delete-page.css'; // Importe seus estilos CSS personalizados
+import Menu from './Menu';
 
 export function DeletePage() {
   const { id } = useParams<{ id: string }>();
@@ -61,6 +62,9 @@ export function DeletePage() {
 
   return (
     <div className="container">
+        <div>
+        <Menu />
+        </div>
       <p>Deletar Carro</p>
       <ul>
         <li>

@@ -26,10 +26,10 @@ export function DashboardPage() {
 
   // Renderize os dados da API na página
   return (
+    
     <div className="dashboard-container">
-      <Menu /> {/* Inclua o componente de menu aqui */}
-      <p className="title">Página Inicial</p>
-      <h2 className="section-title">Dados da API:</h2>
+       <Menu />
+      <h1 className="section-title">Dados da API:</h1>
       <ul className="car-list">
         {(carData as ICar[]).map(car => (
           <li key={car.carId} className="car-item">
@@ -38,7 +38,7 @@ export function DashboardPage() {
                 <span className="label">Car ID:</span> {car.carId}
               </div>
               <div>
-                <span className="label">Modelo:</span> {car.model}
+                <span className="label">Modelo:</span><span className='label2'>{car.model}</span> 
               </div>
               <div>
                 <span className="label">Cor:</span> {car.color}
@@ -53,8 +53,10 @@ export function DashboardPage() {
             </div>
             <div>
             <div>
-          <Link to={`/editar/${car.carId}`} className="button-link">Editar</Link>
-          <Link to={`/deletar/${car.carId}`} className="button-link">Deletar</Link>
+            <div className="button-container">
+            <Link to={`/editar/${car.carId}`} className="button-link edit-button">Editar</Link>
+            <Link to={`/deletar/${car.carId}`} className="button-link delete-button">Deletar</Link>
+          </div>
           </div>
             </div>
           </li>
