@@ -1,19 +1,22 @@
 import React, { ChangeEvent, useState } from 'react';
 import { CarService } from '../api/CarsService/CarsService';
-import ImageUpload from './ImageUpload'; // Certifique-se de importar o componente ImageUpload
+import ImageUpload from './ImageUpload';
 import '../shared/index.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Menu from './Menu';
+
 export function CreatePage() {
   const [model, setModel] = useState('');
   const [color, setColor] = useState('');
   const [year, setYear] = useState<number | string>('');
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imageBase64, setImageBase64] = useState<string | null>(null);
-  const [errors, setErrors] = useState<Record<string, string>>({}); // Estado para rastrear erros por campo
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [createSuccess, setcreateSuccess] = useState(false);
+
+  const navigate = useNavigate(); // Mova useNavigate para fora da função
 
   const handleCreateCar = async () => {
-    // Verificar campos obrigatórios
     const requiredFields = ['model', 'color', 'year', 'selectedImage'];
     const fieldErrors: Record<string, string> = {};
 
@@ -23,19 +26,17 @@ export function CreatePage() {
       }
     });
 
-    // Se houver erros, definir o estado de erros e não enviar para a API
     if (Object.keys(fieldErrors).length > 0) {
       setErrors(fieldErrors);
       return;
     }
 
-    // Se não houver erros, continuar com a chamada da API
     const newCarData = {
       carId: 0,
       model,
       color,
       year: typeof year === 'string' ? Number(year) : year,
-      photoUrl: imageBase64 || '', // Use a representação base64 da imagem aqui
+      photoUrl: imageBase64 || '',
     };
 
     try {
@@ -43,6 +44,8 @@ export function CreatePage() {
 
       if (response) {
         console.log('Carro criado com sucesso:', response);
+        alert('Carro adicionado com sucesso');
+        setcreateSuccess(true);
       } else {
         console.error('Erro ao criar carro: Resposta inesperada da API:', response);
       }
@@ -54,6 +57,9 @@ export function CreatePage() {
       }
     }
   };
+  if (createSuccess) {
+    navigate('/');
+  }
 
   const handleImageUpload = (files: File[]) => {
     const selectedFile = files[0];
