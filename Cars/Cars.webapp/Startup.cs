@@ -24,11 +24,8 @@ namespace Cars.webapp
             {
                 options.AddPolicy("CorsPolicy", builder =>
                 {
-                    // Permite solicitações de qualquer origem
                     builder.AllowAnyOrigin()
-                           // Permite solicitações de qualquer método (GET, POST, PUT, etc.)
                            .AllowAnyMethod()
-                           // Permite solicitações de qualquer cabeçalho
                            .AllowAnyHeader();
                 });
             });
@@ -46,7 +43,6 @@ namespace Cars.webapp
                 app.UseSwaggerUI();
             }
 
-            // Aplicar políticas CORS
             app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
