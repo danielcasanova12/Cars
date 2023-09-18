@@ -1,6 +1,14 @@
 # Projeto CRUD de Carros
 
 ## Como Abrir
+Lidando com Problemas de CORS
+Para contornar problemas de CORS durante o desenvolvimento local, recomendamos o uso da extensão "CORS Unblock" no Google Chrome. Siga as etapas abaixo para configurá-la:
+
+Baixe e instale a extensão "CORS Unblock" na Chrome Web Store [neste link](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino).
+
+Ative a extensão clicando no ícone dela na barra de ferramentas do Chrome.
+
+Com a extensão "CORS Unblock" ativada, você deve conseguir lidar com problemas de CORS ao acessar recursos de diferentes origens durante o desenvolvimento.
 
 Para executar este projeto, siga estas instruções:
 
