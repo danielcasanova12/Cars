@@ -14,7 +14,7 @@ Para executar este projeto, siga estas instruções:
 
 1. Clone este repositório em sua máquina local.
 
-2. Abra a pasta `cas_webapi` com o Visual Studio 2019 e execute a aplicação.
+2. Abra o arquivo `Cars.sln` com o Visual Studio 2019 e execute a aplicação.
 
 3. Abra a pasta `my-app` com o Visual Studio Code.
 
